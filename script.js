@@ -1,48 +1,54 @@
 /*
-  Capturar 2 números
-  e fazer as operações matemáticas
-  de soma, subtração, multiplicação,
-  divisão e resto da divisão.
+    nome do aluno
+    primeira nota
+    segunda nota
 
-  E para cada operação, mostrar um alerta
-  com o resultado.
 */
+const students = [
+    {
+        name: "Lucas",
 
-let firstNumber = prompt('Digite o primeiro número')
-let secondNumber = prompt('Digite o segundo número')
+        fistNote: 5,
 
-firstNumber = Number(firstNumber)
-secondNumber = Number(secondNumber)
+        secondNote: 9
+    },
 
-const sum = firstNumber + secondNumber
-const sub = firstNumber - secondNumber
-const multi = firstNumber * secondNumber
-const div = firstNumber / secondNumber
-const restDiv = firstNumber % secondNumber
+    {
+        name: "Marcia",
 
+        fistNote: 7,
 
+        secondNote: 2
+    },
 
-alert('Soma: ' + sum)
-alert('Subtração: ' + sub)
-alert('Multiplicação: ' + multi)
-alert('Divisão: ' + div)
-alert('Resto da divisão: ' + restDiv)
+    {
+        name: "Eduardo",
 
+        fistNote: 7,
 
-// verificar se a soma dos números é par ou impar
+        secondNote: 8
+    },
+]
 
-if (sum % 2 === 0) {
-    alert("O número é par")
+function average(fistNote, secondNote){
+
+    return (fistNote + secondNote) / 2;
+
 }
-else {
-    alert("O número é impar")
-}
 
-// mostrar se os números colocados são iguais ou diferentes 
+function printAverageNote(student) {
 
-if (firstNumber === secondNumber){
-    alert("Os números são iguais")
-}
-else{
-    alert("Os números são diferentes")
-}
+    const mean = average(student.fistNote, student.secondNote);
+    if (mean >= 7) {
+      return `
+        A média de ${student.name} é: ${mean}\n parabéns, você foi aprovado!`;
+    } else {
+      return `
+        A média de ${student.name} é: ${mean}\n Tente novamente!`;
+    }
+  }
+  
+  for (let student of students) {
+    let Message = printAverageNote(student);
+    alert(Message);
+  }
